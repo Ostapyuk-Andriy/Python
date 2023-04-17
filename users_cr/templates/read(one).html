@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read(one)</title>
+</head>
+<body>
+    <p>{{user['first_name']}} {{user['last_name']}} {{user['email']}} created:{{user['created_at']}} last updated:created:{{user['updated_at']}}</p>
+    <a href="/">Home</a>
+    <a href="/users/edit/{{user.id}}">Edit</a>
+    <a href="/user/delete/{{user.id}}">Delete</a>
+
+
+
+</body>
+</html>

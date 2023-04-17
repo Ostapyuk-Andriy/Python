@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>tracks</title>
+</head>
+<body>
+    <h1>Welcome, {{session.first_name}}</h1>
+    <a href="/tracks/new">+ Create</a>
+    <a href="/logout">logout</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Posted By</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for track in tracks %}
+            <tr>
+                <td>{{track.name}}</td>
+                <td>{{track.genre}}</td>
+                <td>{{track.first_name}}</td>
+                <td>
+                    <a href="/tracks/{{track.id}}">view track</a>
+                    {% if track.user_id == session.user_id %}
+                    <a href="/tracks/edit/{{track.id}}">edit</a>
+                    <a href="/delete/track/{{track.id}}">delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
